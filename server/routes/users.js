@@ -48,6 +48,7 @@ router.get('/:id', function(req, res) {
 //DELETE USER
 //delete the user by id
 router.delete('/:id', function(req, res) {
+	console.log('delete user by id');
 	User.findOneAndRemove({
 	    _id: req.params.id
 	}, function(err, user) {
@@ -67,6 +68,7 @@ router.delete('/:id', function(req, res) {
 //get user object from body
 //add user 
 router.post('/', (req,res,next)=>{
+	console.log('create user');
 	//user data from body
 	var newUser = new User({
 		name:req.body.name,
@@ -94,7 +96,6 @@ router.post('/', (req,res,next)=>{
 //send the new user
 router.put('/:id', function(req, res) {
 	console.log('updating user by id')
-
 
 	var newname = req.body.name;
 	var newemail = req.body.email;
